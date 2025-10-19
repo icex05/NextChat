@@ -268,12 +268,13 @@ export class ChatGPTApi implements LLMApi {
         // 使用类型断言 as any 来绕过 TypeScript 的 'delete' 运算符必须可选的检查
         delete (requestPayload as any).presence_penalty;
         delete (requestPayload as any).frequency_penalty;
+    }
     console.log("[Request] openai payload: ", requestPayload);
 
     const shouldStream = !isDalle3 && !!options.config.stream;
     const controller = new AbortController();
     options.onController?.(controller);
-    }
+
     try {
       let chatPath = "";
       if (modelConfig.providerName === ServiceProvider.Azure) {
