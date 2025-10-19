@@ -273,7 +273,7 @@ export class ChatGPTApi implements LLMApi {
     const shouldStream = !isDalle3 && !!options.config.stream;
     const controller = new AbortController();
     options.onController?.(controller);
-
+    }
     try {
       let chatPath = "";
       if (modelConfig.providerName === ServiceProvider.Azure) {
