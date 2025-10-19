@@ -149,6 +149,8 @@ export class GeminiProApi implements LLMApi {
       ...{
         model: options.config.model,
       },
+    delete modelConfig.presence_penalty;
+    delete modelConfig.frequency_penalty;
     };
     const requestPayload = {
       contents: messages,
